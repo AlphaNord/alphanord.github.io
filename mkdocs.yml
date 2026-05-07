@@ -3,9 +3,23 @@ site_url: https://alphanord.github.io/
 
 theme:
   name: material
+  font: false
+  icon:
+    logo: fontawesome/solid/compass-drafting
   palette:
-    scheme: slate          # dark mode
-    primary: indigo
+    # Palette toggle for light mode
+    - scheme: default
+      primary: orange
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
   features:
     - navigation.tabs
     - navigation.instant
@@ -13,11 +27,15 @@ theme:
 
 plugins:
   - search
-  - blog                   # built-in blog plugin (Material only)
+  - blog # built-in blog plugin (Material only)
 
 markdown_extensions:
-  - pymdownx.arithmatex:   # LaTeX math support (great for EE)
+  - attr_list
+  - pymdownx.arithmatex: # LaTeX math support (great for EE)
       generic: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight
   - pymdownx.superfences
   - admonition
